@@ -18,6 +18,7 @@ app.set("view engine", "handlebars");
 
 //Routes
 var routes = require("./routes/htmlRoutes.js");
+var routes = require("./routes/apiRoutes.js");
 
 app.use(routes);
 
@@ -32,7 +33,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/Filmscraper", { useNewUrlParser: true });
 
 // Start the server
 app.listen(PORT, function () {

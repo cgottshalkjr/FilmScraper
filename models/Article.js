@@ -28,7 +28,7 @@ var ArticleSchema = new Schema({
 
     writer: {
         type: String,
-        required: true
+        // required: true
     },
 
     comment: [
