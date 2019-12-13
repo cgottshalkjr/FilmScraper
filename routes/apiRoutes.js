@@ -19,6 +19,7 @@ router.get("/scrape", function (req, res) {
             result.title = $(element).children().text().trim();
             result.link = $(element).children("a").attr("href");
             result.image = $(element).find("a").find("img").attr("src");
+            result.type = "slideshow";
             console.log(result);
             if (result.title && result.link && result.link) {
 
@@ -36,13 +37,15 @@ router.get("/scrape", function (req, res) {
             }
         });
 
-        $(".column_box .a").each(function (i, element) {
+        $(".column_box").eq(0).find(".column_box_content_row_grey").each(function (i, element) {
 
+            console.log("Second scrape");
             var result = {};
 
-            result.title = $(element).children().text().trim();
-            result.link = $(element).children("a").attr("href");
-            result.image = $(element).find("a").find("img").attr("src");
+            result.title = $(element).find(".cb_article_title").text().trim();
+            result.link = $(element).attr("href");
+            result.image = $(element).find("img").attr("src");
+            result.type = "news";
             console.log(result);
             if (result.title && result.link && result.link) {
 

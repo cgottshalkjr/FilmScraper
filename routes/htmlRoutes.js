@@ -6,14 +6,23 @@ var db = require("../models");
 router.get("/", function (req, res) {
 
     db.Article.find({
-        "saved": false
+        "saved": false,
+        "type": "slideshow"
     })
         .limit(40)
         .then(function (data) {
             var hbsObject = {
                 articles: data
-            };
-            res.render("index", hbsObject);
+            }
+            
+            db.Article.find({
+                "saved": false,
+                "type": "news"
+            }).then(function(data2) {
+                hbsObject.articles2 = data2;
+
+                res.render("index", hbsObject);
+            })
         })
         .catch(function (error) {
             res.send(error)

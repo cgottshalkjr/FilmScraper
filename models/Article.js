@@ -30,6 +30,10 @@ var ArticleSchema = new Schema({
         type: String,
         // required: true
     },
+    
+    type: {
+        type: String
+    },
 
     comment: [
         {
