@@ -34,10 +34,14 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(routes);
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Filmscraper";
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Filmscraper";
 
-mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
 // mongoose.connect("mongodb://localhost/Filmscraper", { useNewUrlParser: true });
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Filmscraper";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
 
 // Start the server
 app.listen(PORT, function () {

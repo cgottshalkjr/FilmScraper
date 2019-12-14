@@ -1,21 +1,49 @@
-$("#scrapeBtn").on("click", function () {
-    $.ajax("/api/scrape", {type: "GET"}
-    ).then(function ()  {
+$("#scrapeBtn").on("click", function (event) {
+
+    console.log("scraped !");
+
+    event.preventDefault();
+
+    $.ajax("/api/scrape", { type: "GET" }
+    )
+    .then(function () {
         location.reload();
     })
 })
 
-$("#clearBtn").on("click", function () {
-    $.ajax("/api/clear", {type: "DELETE"}
-    ).then(function ()  {
-        location.reload();
-    })
-})
+$(document).on("click", "#savedBtn", function (event) {
 
-$("#savedBtn").on("click", function () {
-    $.ajax("/api/article/" + link, {type: "DELETE"}
-    ).then(function ()  {
-        location.reload();
+    console.log("article has been saved");
+
+    event.preventDefault();
+
+    var articleId = $(this).data("id");
+    $.ajax({
+        url: "/saved/article/" + articleId,
+        type: "PUT",
+        data: { saved: true }
     })
+        .then(function () {
+            location.reload();
+        });
+});
+
+$(document).on("click", ".deleteBtn", function (event) {
+
+    console.log("deleted!!!");
+
+    event.preventDefault();
+
+    var articleId = $(this).data("id");
+    $.ajax({
+        url: "/saved/article/" + articleId,
+        type: "DELETE",
+        data: { saved: true }
+    })
+        .then(function () {
+            location.reload();
+        });
+
+
 })
 

@@ -14,8 +14,21 @@
     font-size: 32px;
 }
 
+#scrollCard {
+  color: white;
+  overflow-y: auto;
+  min-height: 225px;
+  max-height: 225px;
+  text-shadow: 1px 1px 2px white;
+}
+
 .buttonFonts {
     font-family: 'Creepster', cursive;
+}
+.carousel-inner {
+  border-radius: 25px;
+  background-color: rgba(0,0,0,0);
+  overflow: hidden;
 }
 
 .logoImg {
@@ -45,7 +58,8 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
-    width: 150px;
+    width: 130px;
+    height: 120px;
   }
 
   .carousel-caption {
@@ -73,4 +87,9 @@
   height: 400px;
 }
 
+.carItem img{
+width: auto;
+  height: 400px;
+  max-height: 400px;
+}
   

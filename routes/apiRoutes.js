@@ -93,26 +93,35 @@ router.get("/api/scrape", function (req, res) {
     });
 });
 
-// router.delete("/api/clear", function (req, res){
-//     db.Article.drop({})
-//     .then(function (result){
-//         res.json(result)
-//     })
-// })
 
-router.put("/api/articles/:id", function (req, res) {
+router.put("/saved/article/:id", function (req, res) {
 
-    db.Article.findOneAndUpdate({ _id: req.params.id }, {
-        $set: {
-            saved: true
+    var articleId = req.params.id;
+
+    db.Article.findOneAndUpdate(
+        { _id: articleId },
+        {
+            $set: { saved: true }
         }
-    })
-        .then(function (dbSaved) {
-            res.json(dbSaved);
+    )
+        .then(function (dbSave) {
+            res.json(dbSave)
         })
-        .catch(function (error) {
-            res.json(error)
-        });
 });
+
+router.delete("/saved/article/:id", function (req, res) {
+
+    var articleId = req.params.id;
+
+    db.Article.deleteOne(
+        { _id: articleId },
+    )
+        .then(function (dbDeleteOne) {
+            res.json(dbDeleteOne);
+        })
+        .catch(function (err) {
+            res.json(err);
+        });
+})
 
 module.exports = router;

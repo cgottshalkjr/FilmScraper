@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div id="carouselExampleControls" class="carousel slide border-0 shadow" data-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide border-0 shadow-light" data-ride="carousel">
                 <div class="carousel-inner">
                     {{#each articles}}
                     {{#if @first}}
@@ -9,9 +9,7 @@
 
                         <img class="d-block w-100" src="{{image}}" alt="First slide">
                         <div class="text-center btnDiv2">
-                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="scrapeBtn" role="button">Save</a>
-                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="deleteBtn"
-                                role="button">Delete</a>
+                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="savedBtn" role="button">Save</a>
                         </div>
                         <div class="carousel-caption mb-4">
                             <a href="{{link}}">{{title}}</a>
@@ -22,9 +20,8 @@
 
                         <img class="d-block w-100" src="{{image}}" alt="First slide">
                         <div class="text-center btnDiv2">
-                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="scrapeBtn" role="button">Save</a>
-                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="deleteBtn"
-                                role="button">Delete</a>
+                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="savedBtn" data-id="{{_id}}"
+                                role="button">Save</a>
                         </div>
                         <div class="carousel-caption mb-4">
                             <a href="{{link}}">{{title}}</a>
@@ -50,19 +47,22 @@
 
 
     {{#each articles2}}
-    <div class="row m-3">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <picture>
-                        <img class="img-thumbnail rounded float-left" id="cardImg" src="{{image}}">
-                    </picture>
-                    <h4><a href="{{link}}">{{title}}</a></h4>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="container">
+        <div class="col-md-4 float-left d-flex h-200">
+            <div class="card card-body m-3" id="scrollCard" style="width: 18rem;">
+                <picture>
+                    <img class="img-thumbnail rounded float-left m-1" id="cardImg" src="{{image}}">
+                    <h5><a href="{{link}}">{{title}}</a></h5>
+                </picture>
+
+                <div class="text-center">
+                    <a class="btn btn-primary btn-lg buttonFonts" href="#" id="savedBtn" data-id="{{_id}}"
+                        role="button">Save</a>
                 </div>
             </div>
+
         </div>
     </div>
+
     {{/each}}
 </div>

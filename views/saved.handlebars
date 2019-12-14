@@ -1,0 +1,44 @@
+{{#each articles}}
+{{#if saved}}
+<div class="container">
+    <div class="col-md-4 float-left d-flex h-200">
+        <div class="card card-body m-3" id="scrollCard" style="width: 18rem;">
+            <picture>
+                <img class="img-thumbnail rounded float-left m-1" id="cardImg" src="{{image}}">
+                <h5><a href="{{link}}">{{title}}</a></h5>
+            </picture>
+
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg buttonFonts commentBtn" href="#" role="button">Comment</a>
+                <a class="btn btn-primary btn-lg buttonFonts deleteBtn" href="#" data-id="{{_id}}"
+                    role="button">Delete</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}
+{{/each}}
+
+{{#each articles2}}
+{{#if saved}}
+<div class="container">
+    <div class="col-md-4 float-left d-flex h-200">
+        <div class="card card-body m-3" id="scrollCard" style="width: 18rem;">
+            <picture>
+                <img class="img-thumbnail rounded float-left m-1" id="cardImg" src="{{image}}">
+                <h5><a href="{{link}}">{{title}}</a></h5>
+            </picture>
+
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg buttonFonts commentBtn" href="#" data-id="{{_id}}"
+                    role="button">Comment</a>
+                <a class="btn btn-primary btn-lg buttonFonts deleteBtn" href="#" data-id="{{_id}}"
+                    role="button">Delete</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}
+{{/each}}
