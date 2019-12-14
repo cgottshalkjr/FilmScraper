@@ -14,11 +14,13 @@ router.get("/", function (req, res) {
             var hbsObject = {
                 articles: data
             }
-            
+
             db.Article.find({
                 "saved": false,
                 "type": "news"
-            }).then(function(data2) {
+            })
+            .limit(20)
+            .then(function(data2) {
                 hbsObject.articles2 = data2;
 
                 res.render("index", hbsObject);
