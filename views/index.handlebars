@@ -1,25 +1,33 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide border-0 shadow" data-ride="carousel">
                 <div class="carousel-inner">
                     {{#each articles}}
                     {{#if @first}}
-                    <div class="carousel-item active">
+                    <div class="carousel-item active carItem">
 
                         <img class="d-block w-100" src="{{image}}" alt="First slide">
-                        <div class="carousel-caption">
+                        <div class="text-center btnDiv2">
+                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="scrapeBtn" role="button">Save</a>
+                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="deleteBtn"
+                                role="button">Delete</a>
+                        </div>
+                        <div class="carousel-caption mb-4">
                             <a href="{{link}}">{{title}}</a>
-                            <a class="btn btn-primary btn-lg buttonFonts savedBtn" href="#" role="button">Save</a>
                         </div>
                     </div>
                     {{else}}
-                    <div class="carousel-item">
+                    <div class="carousel-item carItem">
 
                         <img class="d-block w-100" src="{{image}}" alt="First slide">
-                        <div class="carousel-caption">
-                            <a href="{{link}}">{{title}}</a>
+                        <div class="text-center btnDiv2">
                             <a class="btn btn-primary btn-lg buttonFonts" href="#" id="scrapeBtn" role="button">Save</a>
+                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="deleteBtn"
+                                role="button">Delete</a>
+                        </div>
+                        <div class="carousel-caption mb-4">
+                            <a href="{{link}}">{{title}}</a>
                         </div>
                     </div>
                     {{/if}}
@@ -49,7 +57,7 @@
                     <picture>
                         <img class="img-thumbnail rounded float-left" id="cardImg" src="{{image}}">
                     </picture>
-                <h4><a href="{{link}}">{{title}}</a></h4>
+                    <h4><a href="{{link}}">{{title}}</a></h4>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
@@ -58,5 +66,3 @@
     </div>
     {{/each}}
 </div>
-  
-

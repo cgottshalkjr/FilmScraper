@@ -3,10 +3,11 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height:400px;
+    height:300px;
     border-bottom:1px solid #ff6a00;
     position: relative;
   }
+ 
 
 .navbarLogo {
     font-family: 'Creepster', cursive;
@@ -21,20 +22,23 @@
     height: 7rem;
 }
 
-/* .logoImg2 {
-    
-        width: 150px;
-        -webkit-filter: drop-shadow(5px 5px 5px #222);
-        filter: drop-shadow(5px 5px 5px #222);
-    
-
-} */
+.carousel {
+  position : relative;
+  }
 
 .btnDiv {
     width: 100%;
     left: 0;
-    bottom: 10px;
+    bottom: 30px;
     position: absolute;
+  }
+
+.btnDiv2 {
+    width: 100%;
+    left: 0;
+    bottom: 60px;
+    position: absolute;
+    margin-bottom: 10px;
   }
 
   #cardImg {
@@ -43,3 +47,30 @@
     padding: 5px;
     width: 150px;
   }
+
+  .carousel-caption {
+    background-color: rgb(19, 18, 18, 0.6);
+    line-height: normal;
+    width: 100%;
+    left: 0;
+    padding-top: 5px;
+    bottom: -30px;
+    position: absolute;
+  }
+
+  .carItem:before {
+    -webkit-box-shadow: inset 0 0 20rem rgba(0, 0, 0, 1);
+    box-shadow: inset 0 0 20rem rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+}
+
+.carousel-inner > .carItem {
+  height: 400px;
+}
+
+  
