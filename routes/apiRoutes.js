@@ -122,6 +122,17 @@ router.delete("/saved/article/:id", function (req, res) {
         .catch(function (err) {
             res.json(err);
         });
-})
+});
+
+router.delete("/api/scrape", function (req, res) {
+
+    db.Article.deleteMany({})
+        .then(function (dbDeleteAll) {
+            res.json(dbDeleteAll);
+        })
+        .catch(function (err) {
+            res.json(err);
+        })
+});
 
 module.exports = router;

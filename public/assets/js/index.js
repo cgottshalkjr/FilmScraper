@@ -6,10 +6,10 @@ $("#scrapeBtn").on("click", function (event) {
 
     $.ajax("/api/scrape", { type: "GET" }
     )
-    .then(function () {
-        location.reload();
-    })
-})
+        .then(function () {
+            location.reload();
+        });
+});
 
 $(document).on("click", "#savedBtn", function (event) {
 
@@ -43,7 +43,21 @@ $(document).on("click", ".deleteBtn", function (event) {
         .then(function () {
             location.reload();
         });
+});
+
+$(document).on("click", "#clearBtn", function (event) {
+
+    console.log("The DB has been cleared!!");
+
+    event.preventDefault();
+
+    $.ajax("/api/scrape", { type: "DELETE" }
+    )
+        .then(function () {
+            location.reload();
+        });
 
 
 })
+
 
