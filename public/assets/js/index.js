@@ -56,8 +56,21 @@ $(document).on("click", "#clearBtn", function (event) {
         .then(function () {
             location.reload();
         });
+});
 
+$(document).on("click", ".commentBtn", function (event) {
 
+    console.log("modal clicked!!");
+
+    event.preventDefault();
+
+    var articleId = $(this).data("id");
+
+    $("#titleField" + articleId).val("");
+    $("#commentTextBody" + articleId).val("");
+    $("#commentModal-" + articleId).modal("show");
+
+    return articleId
 })
 
 
