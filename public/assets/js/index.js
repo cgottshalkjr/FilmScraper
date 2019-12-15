@@ -66,11 +66,44 @@ $(document).on("click", ".commentBtn", function (event) {
 
     var articleId = $(this).data("id");
 
-    $("#titleField" + articleId).val("");
-    $("#commentTextBody" + articleId).val("");
+    $(".titleField" + articleId).val("");
+    $(".commentTextBody" + articleId).val("");
     $("#commentModal-" + articleId).modal("show");
 
     return articleId
-})
+});
+
+$(document).on("click", "#saveComment", function (event) {
+
+    console.log("saved a comment!!!");
+
+    event.preventDefault();
+
+    var commentId = $(this).data("id");
+
+    // console.log(commentId);
+    // console.log(this);
+
+    var title = $(".titleField-" + commentId).val();
+    var text = $(".commentTextBody-" + commentId).val();
+
+    // console.log("===========");
+    // console.log(title);
+    // console.log(text);
+    // console.log("===========");
+
+    $.ajax({
+        type: "POST",
+        url: "/saved/article/" + commentId,
+        data: {
+            title: title,
+            text: text
+            // created: Date.now()
+        }
+    })
+    .then(function () {
+            $("#commentModal-" + commentId).modal("hide");
+        });
+});
 
 

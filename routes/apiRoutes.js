@@ -135,4 +135,24 @@ router.delete("/api/scrape", function (req, res) {
         })
 });
 
+router.post("/saved/article/:id", function (req, res) {
+
+    // console.log(req.body);
+
+    db.Comment.create(req.body)
+    
+      .then(function (dbNewComment) {
+
+        return db.Article.findOneAndUpdate({ _id: req.params.id }, 
+            { $push: { comment: dbNewComment._id } }, 
+            { new: true });
+      })
+      .then(function (dbNewComment) {
+        res.json(dbNewComment);
+      })
+      .catch(function (err) {
+        res.json(err);
+      });
+  });
+
 module.exports = router;
