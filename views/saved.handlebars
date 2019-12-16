@@ -1,3 +1,4 @@
+{{!-- looping through our scrapes that we send to saved page --}}
 {{#each articles}}
 {{#if saved}}
 <div class="container">
@@ -18,6 +19,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
+                                <h4>ADD A COMMENT!</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -35,6 +37,7 @@
                                     </div>
                                 </form>
                                 <div class="commentField text-center">
+                                    {{!-- comment section --}}
                                     {{#comment}}
                                     <span>
                                         <button type="button" data-id="{{_id}}"
@@ -44,6 +47,7 @@
                                     <p>{{text}}</p>
                                     <hr>
                                     {{/comment}}
+                                    {{!-- end comment --}}
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -66,6 +70,7 @@
 {{/if}}
 {{/each}}
 
+{{!-- another loop for those second results --}}
 {{#each articles2}}
 {{#if saved}}
 <div class="container">
@@ -86,6 +91,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
+                                <h4>ADD A COMMENT!</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -112,6 +118,7 @@
                                     data-dismiss="modal">Close</button>
                             </div>
                             <div class="commentField text-center">
+                                {{!-- comment section --}}
                                 {{#comment}}
                                 <span><button type="button" data-id="{{_id}}"
                                         class="btn btn-primary removeCmt float-left m-1">Remove</button>
@@ -120,6 +127,7 @@
                                 <p>{{text}}</p>
                                 <hr>
                                 {{/comment}}
+                                {{!-- end comment --}}
                             </div>
                             {{!-- End of modal footer and comments --}}
                         </div>

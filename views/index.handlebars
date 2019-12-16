@@ -1,15 +1,20 @@
 <div class="container">
+    {{!-- area that is bring in the carousel scrapes --}}
     <div class="row">
         <div class="col-md-12">
+            {{!-- carousel --}}
             <div id="carouselExampleControls" class="carousel slide border-0 shadow-light" data-ride="carousel">
                 <div class="carousel-inner">
+                    {{!-- looping through each scrape result and putting them inside carousel --}}
+                    {{!-- had to make if/else for active item on carousel to able to cycle through --}}
                     {{#each articles}}
                     {{#if @first}}
                     <div class="carousel-item active carItem">
 
                         <img class="d-block w-100" src="{{image}}" alt="First slide">
                         <div class="text-center btnDiv2">
-                            <a class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="savedBtn" role="button">Save</a>
+                            <a class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="savedBtn"
+                                role="button">Save</a>
                         </div>
                         <div class="carousel-caption mb-4">
                             <a class="linkText" href="{{link}}">{{title}}</a>
@@ -20,11 +25,11 @@
 
                         <img class="d-block w-100" src="{{image}}" alt="First slide">
                         <div class="text-center btnDiv2">
-                            <a class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="savedBtn" data-id="{{_id}}"
-                                role="button">Save</a>
+                            <a class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="savedBtn"
+                                data-id="{{_id}}" role="button">Save</a>
                         </div>
                         <div class="carousel-caption mb-4">
-                            <a  class="linkText" href="{{link}}">{{title}}</a>
+                            <a class="linkText" href="{{link}}">{{title}}</a>
                         </div>
                     </div>
                     {{/if}}
@@ -40,24 +45,26 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            {{!-- end carousel --}}
         </div>
     </div>
+    {{!-- end carousel scrapes --}}
 
 
 
-
+    {{!--  that second news area we scraped populating those results on bootstrap cards. --}}
     {{#each articles2}}
     <div class="container">
         <div class="col-md-4 float-left d-flex h-200">
             <div class="card card-body m-3" id="scrollCard" style="width: 18rem;">
                 <picture>
                     <img class="img-thumbnail rounded float-left m-2" id="cardImg" src="{{image}}">
-                    <h5><a class ="linkText" href="{{link}}">{{title}}</a></h5>
+                    <h5><a class="linkText" href="{{link}}">{{title}}</a></h5>
                 </picture>
 
                 <div class="text-center">
-                    <a class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2" href="#" id="savedBtn" data-id="{{_id}}"
-                        role="button">Save</a>
+                    <a class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2" href="#" id="savedBtn"
+                        data-id="{{_id}}" role="button">Save</a>
                 </div>
             </div>
 

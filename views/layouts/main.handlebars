@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Film Scraper</title>
-
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
         integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
         crossorigin="anonymous"></script>
@@ -22,11 +21,11 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rCA2D+D9QXuP2TomtQwd+uP50EHjpafN+wruul0sXZzX/Da7Txn4tB9aLMZV4DZm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
-
 </head>
 
 <body>
 
+    {{!-- Nav bar --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand navbarLogo" href="/">Film Scraper</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
@@ -36,6 +35,7 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
+                {{!-- nav links --}}
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -43,23 +43,29 @@
                     <a class="nav-link" href="/saved">Saved Articles</a>
                 </li>
             </ul>
+            {{!-- logo --}}
             <ul class="nav navbar-nav navbar-right">
                 <li><img class="logoImg" src="assets/imgs/logo1.png"></li>
             </ul>
         </div>
     </nav>
+    {{!-- End Nav bar --}}
 
+    {{!-- Jumbotron --}}
     <div class="jumbotron text-center">
         <h2 class="jumboTitle">FILM SCRAPER</h2>
         <div class="text-center btnDiv">
-            <button class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="scrapeBtn" role="button">Scrape</button>
-            <button class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="clearBtn" role="button">Clear</button>
+            {{!-- Main jumbo buttons...scrape and delete --}}
+            <button class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="scrapeBtn"
+                role="button">Scrape</button>
+            <button class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="clearBtn"
+                role="button">Clear</button>
         </div>
-
     </div>
 
     {{{body}}}
 
+    {{!-- javascript --}}
     <script type="text/javascript" src="assets/js/index.js"></script>
 </body>
 
