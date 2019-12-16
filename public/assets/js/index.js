@@ -1,3 +1,4 @@
+//Click for scraping the newest articles
 $("#scrapeBtn").on("click", function (event) {
 
     console.log("scraped !");
@@ -11,6 +12,7 @@ $("#scrapeBtn").on("click", function (event) {
         });
 });
 
+//Click for saving articles to DB
 $(document).on("click", "#savedBtn", function (event) {
 
     console.log("article has been saved");
@@ -28,6 +30,7 @@ $(document).on("click", "#savedBtn", function (event) {
         });
 });
 
+//Click for deleting saved articles from DB
 $(document).on("click", ".deleteBtn", function (event) {
 
     console.log("deleted!!!");
@@ -45,6 +48,7 @@ $(document).on("click", ".deleteBtn", function (event) {
         });
 });
 
+//Click for clearing entire DB of articles
 $(document).on("click", "#clearBtn", function (event) {
 
     console.log("The DB has been cleared!!");
@@ -58,6 +62,7 @@ $(document).on("click", "#clearBtn", function (event) {
         });
 });
 
+//Click for toggling the modal to bring up a field for user to write comment.
 $(document).on("click", ".commentBtn", function (event) {
 
     console.log("modal clicked!!");
@@ -73,6 +78,7 @@ $(document).on("click", ".commentBtn", function (event) {
     return articleId
 });
 
+//Click for saving comment to DB and rendering on modal.
 $(document).on("click", "#saveComment", function (event) {
 
     console.log("saved a comment!!!");
@@ -81,16 +87,8 @@ $(document).on("click", "#saveComment", function (event) {
 
     var commentId = $(this).data("id");
 
-    // console.log(commentId);
-    // console.log(this);
-
     var title = $(".titleField-" + commentId).val();
     var text = $(".commentTextBody-" + commentId).val();
-
-    // console.log("===========");
-    // console.log(title);
-    // console.log(text);
-    // console.log("===========");
 
     $.ajax({
         type: "POST",
@@ -98,16 +96,15 @@ $(document).on("click", "#saveComment", function (event) {
         data: {
             title: title,
             text: text
-            // created: Date.now()
         }
     })
-    .then(function () {
-            $("#commentModal-" + commentId).modal("hide");
+        .then(function () {
+            location.reload();
         });
 });
 
-
-$(document).on("click", ".removeCmt", function(event) {
+//Click for deleting a comment from a user.
+$(document).on("click", ".removeCmt", function (event) {
 
     console.log("this delete button is working!");
 
@@ -116,12 +113,13 @@ $(document).on("click", ".removeCmt", function(event) {
     var id = $(this).data("id");
 
     var commentId = $(".commentField").data("id");
-  
+
     $.ajax({
-      url: "/saved/article/" + commentId + "/comment/" + id,
-      type: "DELETE"
-    }).then(function() {
-      $("#commentModal").modal("hide");
-    });
-  });
+        url: "/saved/article/" + commentId + "/comment/" + id,
+        type: "DELETE"
+    })
+        .then(function () {
+            location.reload();
+        });
+});
 

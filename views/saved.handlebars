@@ -4,14 +4,14 @@
     <div class="col-md-4 float-left d-flex h-200">
         <div class="card card-body m-3" id="scrollCard" style="width: 18rem;">
             <picture>
-                <img class="img-thumbnail rounded float-left m-1" id="cardImg" src="{{image}}">
-                <h5><a href="{{link}}">{{title}}</a></h5>
+                <img class="img-thumbnail rounded float-left m-2" id="cardImg" src="{{image}}">
+                <h5><a class="linkText" href="{{link}}">{{title}}</a></h5>
             </picture>
 
             <div class="text-center">
-                <button data-id="{{_id}}" class="btn btn-primary btn-lg buttonFonts commentBtn"
+                <button data-id="{{_id}}" class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2 commentBtn"
                     data-toggle="modal">Comments</button>
-                <button data-id="{{_id}}" class="btn btn-primary btn-lg buttonFonts deleteBtn"
+                <button data-id="{{_id}}" class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2 deleteBtn"
                     data-toggle="modal">Delete</button>
                 {{!-- Beginning of  comments modal --}}
                 <div class="modal" tabindex="-1" role="dialog" id="commentModal-{{_id}}">
@@ -36,18 +36,20 @@
                                 </form>
                                 <div class="commentField text-center">
                                     {{#comment}}
-                                    <button type="button" data-id="{{_id}}"
-                                        class="btn btn-primary removeCmt float-left">Delete</button>
+                                    <span>
+                                        <button type="button" data-id="{{_id}}"
+                                            class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2 removeCmt float-left m-1">Delete</button>
+                                    </span>
                                     <h5>{{title}}</h5>
                                     <p>{{text}}</p>
-                                        <hr>
+                                    <hr>
                                     {{/comment}}
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary buttonFonts" id="saveComment"
+                                <button type="button" class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2" id="saveComment"
                                     data-id="{{_id}}">Save</button>
-                                <button type="button" class="btn btn-primary buttonFonts"
+                                <button type="button" class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2"
                                     data-dismiss="modal">Close</button>
                             </div>
                         </div>
@@ -70,14 +72,14 @@
     <div class="col-md-4 float-left d-flex h-200">
         <div class="card card-body m-3" id="scrollCard" style="width: 18rem;">
             <picture>
-                <img class="img-thumbnail rounded float-left m-1" id="cardImg" src="{{image}}">
-                <h5><a href="{{link}}">{{title}}</a></h5>
+                <img class="img-thumbnail rounded float-left m-2" id="cardImg" src="{{image}}">
+                <h5><a class="linkText" class="linkText" href="{{link}}">{{title}}</a></h5>
             </picture>
 
             <div class="text-center">
-                <button data-id="{{_id}}" class="btn btn-primary btn-lg buttonFonts commentBtn"
+                <button data-id="{{_id}}" class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2" "commentBtn"
                     data-toggle="modal">Comments</button>
-                <button data-id="{{_id}}" class="btn btn-primary btn-lg buttonFonts deleteBtn"
+                <button data-id="{{_id}}" class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2" "deleteBtn"
                     data-toggle="modal">Delete</button>
                 {{!-- Beginning of  comments modal --}}
                 <div class="modal" tabindex="-1" role="dialog" id="commentModal-{{_id}}">
@@ -102,21 +104,24 @@
                                 </form>
 
                             </div>
+                            {{!-- Modal footer with buttons and comments --}}
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary buttonFonts" id="saveComment"
+                                <button type="button" class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2" id="saveComment"
                                     data-id="{{_id}}">Save</button>
-                                <button type="button" class="btn btn-primary buttonFonts"
+                                <button type="button" class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2"
                                     data-dismiss="modal">Close</button>
                             </div>
                             <div class="commentField text-center">
                                 {{#comment}}
-                                <button type="button" data-id="{{_id}}"
-                                    class="btn btn-primary removeCmt">Remove</button>
+                                <span><button type="button" data-id="{{_id}}"
+                                        class="btn btn-primary removeCmt float-left m-1">Remove</button>
+                                </span>
                                 <h5>{{title}}</h5>
                                 <p>{{text}}</p>
-                                    <hr>
+                                <hr>
                                 {{/comment}}
                             </div>
+                            {{!-- End of modal footer and comments --}}
                         </div>
                     </div>
                 </div>

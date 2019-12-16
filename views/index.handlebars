@@ -9,10 +9,10 @@
 
                         <img class="d-block w-100" src="{{image}}" alt="First slide">
                         <div class="text-center btnDiv2">
-                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="savedBtn" role="button">Save</a>
+                            <a class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="savedBtn" role="button">Save</a>
                         </div>
                         <div class="carousel-caption mb-4">
-                            <a href="{{link}}">{{title}}</a>
+                            <a class="linkText" href="{{link}}">{{title}}</a>
                         </div>
                     </div>
                     {{else}}
@@ -20,7 +20,7 @@
 
                         <img class="d-block w-100" src="{{image}}" alt="First slide">
                         <div class="text-center btnDiv2">
-                            <a class="btn btn-primary btn-lg buttonFonts" href="#" id="savedBtn" data-id="{{_id}}"
+                            <a class="btn btn-dark btn-lg box-shadow--16dp buttonFonts" href="#" id="savedBtn" data-id="{{_id}}"
                                 role="button">Save</a>
                         </div>
                         <div class="carousel-caption mb-4">
@@ -51,12 +51,12 @@
         <div class="col-md-4 float-left d-flex h-200">
             <div class="card card-body m-3" id="scrollCard" style="width: 18rem;">
                 <picture>
-                    <img class="img-thumbnail rounded float-left m-1" id="cardImg" src="{{image}}">
-                    <h5><a href="{{link}}">{{title}}</a></h5>
+                    <img class="img-thumbnail rounded float-left m-2" id="cardImg" src="{{image}}">
+                    <h5><a class ="linkText" href="{{link}}">{{title}}</a></h5>
                 </picture>
 
                 <div class="text-center">
-                    <a class="btn btn-primary btn-lg buttonFonts" href="#" id="savedBtn" data-id="{{_id}}"
+                    <a class="btn btn-dark btn-lg box-shadow--16dp buttonFonts m-2" href="#" id="savedBtn" data-id="{{_id}}"
                         role="button">Save</a>
                 </div>
             </div>

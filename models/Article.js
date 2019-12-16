@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
+//Model for new articles that are getting scraped. I had some other fields I wanted to implement but I realized the site did not offere summary or by-line by the time I was half way through. 
 var ArticleSchema = new Schema({
 
     title: {
