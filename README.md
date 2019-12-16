@@ -14,7 +14,7 @@ Navigate your way to the home page by using the link provided above. Cycle throu
 
 ### Pictures of App in Action!
 ---
-![SignUp Page](assets/imgs/readmeshot.png "Sign Up")
+![Main Page](../assets/imgs/readmeshot.png "Main Page")
 **View of Main Page**
 
 ### TECHNOLOGIES USED
