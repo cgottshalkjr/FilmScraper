@@ -14,7 +14,7 @@ Navigate your way to the home page by using the link provided above. Cycle throu
 
 ### Pictures of App in Action!
 ---
-![Main Page](../assets/imgs/readmeshot.png "Main Page")
+![Main Page](public/assets/imgs/readmeshot.png "Main Page")
 **View of Main Page**
 
 ### TECHNOLOGIES USED
