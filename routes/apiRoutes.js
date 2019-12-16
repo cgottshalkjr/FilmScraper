@@ -155,4 +155,21 @@ router.post("/saved/article/:id", function (req, res) {
       });
   });
 
+  router.delete("/saved/article/:articleId/comment/:id", function(req, res) {
+   
+    db.Comment.deleteOne({ _id: req.params.id })
+      .then(function() {
+        return db.Article.findOneAndUpdate(
+          { _id: req.params.articleId },
+          { $pull: { comment: req.params.id } }
+        );
+      })
+      .then(function(dbDeleteOne) {
+        res.json(dbDeleteOne);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
 module.exports = router;

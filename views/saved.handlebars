@@ -34,10 +34,13 @@
                                         <textarea class="form-control commentTextBody-{{_id}}" rows="3"></textarea>
                                     </div>
                                 </form>
-                                <div class="commentField">
+                                <div class="commentField text-center">
                                     {{#comment}}
+                                    <button type="button" data-id="{{_id}}"
+                                        class="btn btn-primary removeCmt float-left">Delete</button>
                                     <h5>{{title}}</h5>
                                     <p>{{text}}</p>
+                                        <hr>
                                     {{/comment}}
                                 </div>
                             </div>
@@ -105,10 +108,13 @@
                                 <button type="button" class="btn btn-primary buttonFonts"
                                     data-dismiss="modal">Close</button>
                             </div>
-                            <div class="commentField">
+                            <div class="commentField text-center">
                                 {{#comment}}
+                                <button type="button" data-id="{{_id}}"
+                                    class="btn btn-primary removeCmt">Remove</button>
                                 <h5>{{title}}</h5>
                                 <p>{{text}}</p>
+                                    <hr>
                                 {{/comment}}
                             </div>
                         </div>

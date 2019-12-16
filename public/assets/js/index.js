@@ -107,3 +107,21 @@ $(document).on("click", "#saveComment", function (event) {
 });
 
 
+$(document).on("click", ".removeCmt", function(event) {
+
+    console.log("this delete button is working!");
+
+    event.preventDefault();
+
+    var id = $(this).data("id");
+
+    var commentId = $(".commentField").data("id");
+  
+    $.ajax({
+      url: "/saved/article/" + commentId + "/comment/" + id,
+      type: "DELETE"
+    }).then(function() {
+      $("#commentModal").modal("hide");
+    });
+  });
+
