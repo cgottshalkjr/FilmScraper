@@ -11,6 +11,7 @@ router.get("/", function (req, res) {
     })
         .limit(40)
         .then(function (data) {
+             console.log(data)
             var hbsObject = {
                 articles: data
             }
@@ -21,6 +22,7 @@ router.get("/", function (req, res) {
             })
             .limit(20)
             .then(function(data2) {
+                console.log(data2)
                 hbsObject.articles2 = data2;
 
                 res.render("index", hbsObject);

@@ -10,11 +10,17 @@ var db = require("../models");
 //Technically only pulling from two sources from the same site.
 router.get("/api/scrape", function (req, res) {
 
+    // console.log(req)
+
     axios.get("https://thefilmstage.com/").then(function (response) {
+
+    console.log(response)
 
         var $ = cheerio.load(response.data);
 
-        $(".spotlight .slideshow_slide").each(function (i, element) {
+        $(".cb-grid-feature").each(function (i, element) {
+
+            console.log("1", element);
 
             var result = {};
 
@@ -39,12 +45,14 @@ router.get("/api/scrape", function (req, res) {
             }
         });
 
-        $(".column_box").eq(0).find(".column_box_content_row_grey").each(function (i, element) {
+        $(".cb-grid-x").eq(0).find(".cb-grid-feature").each(function (i, element) {
+
+            console.log("2", element)
 
             console.log("Second scrape");
             var result = {};
 
-            result.title = $(element).find(".cb_article_title").text().trim();
+            result.title = $(element).find(".cb-article-meta").text().trim();
             result.link = $(element).attr("href");
             result.image = $(element).find("img").attr("src");
             result.type = "news";
@@ -65,31 +73,7 @@ router.get("/api/scrape", function (req, res) {
             }
         });
 
-        $(".column_box").eq(0).find(".column_box_content_row").each(function (i, element) {
-
-            console.log("Second scrape");
-            var result = {};
-
-            result.title = $(element).find(".cb_article_title").text().trim();
-            result.link = $(element).attr("href");
-            result.image = $(element).find("img").attr("src");
-            result.type = "news";
-            console.log(result);
-            if (result.title && result.link && result.link) {
-
-                db.Article.create(result,
-                    function (err, inserted) {
-                        if (err) {
-
-                            console.log(err);
-                        }
-                        else {
-
-                            console.log(inserted);
-                        }
-                    });
-            }
-        });
+        
 
         res.send("Scrape was successful!");
     });
